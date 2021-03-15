@@ -12,7 +12,7 @@ For example, given the following details:
 
 > Greg weighs 150kg and is 1.8m tall.
 
-1. Multiply Greg's height by is self (square) `1.8 x 1.8 = 3.24`
+1. Multiply Greg's height by it's self (square) `1.8 x 1.8 = 3.24`
 2. Divide Greg's weight by the calculation from step 1 `150 / 3.24 = 46.3`
 
 Your challenge is to write a program that will ask the user for their weight and height and tell them their BMI. A file called `bmi.rb` has been provided in this directory.
