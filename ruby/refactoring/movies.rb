@@ -1,88 +1,53 @@
-puts '1. A New Hope'
-puts '2. Back to the Future'
-puts '3. The Matrix'
-print 'Enter your choice (1-3) > '
-
-movie_number = gets.to_i
-
-if movie_number == 1
-  puts ' '
-  movie_1_title = 'A New Hope'
-  puts movie_1_title
-
-  movie_1_release_date = 1977
-  puts 'Released: ' + movie_1_release_date.to_s
-
-  movie_1_director = 'George Lucas'
-  puts 'Directed by: ' + movie_1_director
-  movie_1_first_actor_name = 'Mark Hamil'
-  movie_1_second_actor_name = 'Harrison Ford'
-  movie_1_third_actor_name = 'Carrie Fisher'
-
-  movie_1_first_actor_role = 'Luke Skywalker'
-  movie_1_second_actor_role = 'Han Solo'
-  movie_1_third_actor_role = 'Leia Organa'
-
-  puts 'Staring:'
-  puts movie_1_first_actor_name + ' as ' + movie_1_first_actor_role
-  puts movie_1_second_actor_name + ' as ' + movie_1_second_actor_role
-  puts movie_1_third_actor_name + ' as ' + movie_1_third_actor_role
-
-  puts ' '
-elsif movie_number == 2
-  puts ' '
-  movie_2_title = 'Back to the Future'
-  puts movie_2_title
-
-  movie_2_release_date = 1985
-  puts 'Released: ' + movie_2_release_date.to_s
-
-  movie_2_director = 'Robert Zemeckis'
-  puts 'Directed by: ' + movie_2_director
-
-  movie_2_first_actor_name = 'Michael J. Fox'
-  movie_2_second_actor_name = 'Christopher Lloyd'
-  movie_2_third_actor_name = 'Lea Thompson'
-
-  movie_2_first_actor_role = 'Marty McFly'
-  movie_2_second_actor_role = 'Doc'
-  movie_2_third_actor_role = 'Lorraine Baines'
-
-  puts 'Staring'
-  puts movie_2_first_actor_name + ' as ' + movie_2_first_actor_role
-  puts movie_2_second_actor_name + ' as ' + movie_2_second_actor_role
-  puts movie_2_third_actor_name + ' as ' + movie_2_third_actor_role
-
-  puts ' '
-elsif movie_number == 3
-  puts ' '
-  movie_3_title = 'The Matrix'
-  puts movie_3_title
-
-  movie_3_release_date = 1999
-  puts 'Released: ' + movie_3_release_date.to_s
-
-  movie_3_director = 'Lana & Lilly Wachowski'
-  puts 'Directed by: ' + movie_3_director
-
-  movie_3_first_actor_name = 'Keanu Reeves'
-  movie_3_second_actor_name = 'Laurence Fishburne'
-  movie_3_third_actor_name = 'Carrie-Anne Moss'
-
-  movie_3_first_actor_role = 'Neo'
-  movie_3_second_actor_role = 'Morpheus'
-  movie_3_third_actor_role = 'Trinity'
-
-  puts 'Staring:'
-  puts movie_3_first_actor_name + ' as ' + movie_3_first_actor_role
-  puts movie_3_second_actor_name + ' as ' + movie_3_second_actor_role
-  puts movie_3_third_actor_name + ' as ' + movie_3_third_actor_role
-
-  puts ' '
-elsif movie_number != 1 && movie_number != 2 && movie_number != 3
-  puts ' '
-  puts 'No movie data for that choice!'
-  puts ' '
+def print_menu
+  puts '1. A New Hope'
+  puts '2. Back to the Future'
+  puts '3. The Matrix'
 end
+
+def get_selection(array)
+  loop do
+    print_menu
+    print "Enter your choice (1-#{array.length})"
+    movie_number = gets.to_i
+    if movie_number <= array.length
+      return movie_number
+    else
+      puts "\n#{movie_number} is not a valid option, please try again\n"
+    end
+  end
+end
+
+def print_selection(movie)
+  puts " "
+  puts movie[:title]
+  
+  puts "Released: #{movie[:release_date]}"
+  puts "Directed by: #{movie[:director]}"
+  
+  puts "Staring:"
+  puts "#{movie[:actor1]} as #{movie[:role1]}"
+  puts "#{movie[:actor2]} as #{movie[:role2]}"
+  puts "#{movie[:actor3]} as #{movie[:role3]}"
+  puts " "
+  
+  # puts "Staring:"
+  # movie[:actors].each do | index |
+  #   puts "#{movie[:actors][index]} as #{movie[:roles][index]}"
+  # end
+  # puts " "
+end
+
+movies = [
+  {title: "A New Hope", release_date: 1977, director: "George Lucas", actor1: "Mark Hamil", actor2: "Harrison Ford",actor3: "Carrie Fisher", role1: "Luke Skywalker", role2: "Han Solo",role3: "Leia Organa"},
+  
+  {title: "Back to the Future", release_date: 1985, director: "Robert Zemeckis", actor1: "Michael J. Fox", actor2: "Christopher Lloyd",actor3: "Lea Thompson", role1: "Marty McFly", role2: "Doc",role3: "Lorraine Baines"},
+  
+  {title: "The Matrix", release_date: 1999, director: "Lana & Lilly Wachowski", actor1: "Keanu Reeves", actor2: "Laurence Fishburne",actor3: "Carrie-Anne Moss", role1: "Neo", role2: "Morpheus",role3: "Trinity"},
+  
+  # {title: "The Matrix", release_date: 1999, director: "Lana & Lilly Wachowski", actors: ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"], roles: ["Neo", "Morpheus", "Trinity"]}
+]
+
+movie_number = get_selection(movies)
+print_selection(movies[movie_number-1])
 
 puts 'Goodbye!'
