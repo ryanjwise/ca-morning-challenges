@@ -8,13 +8,12 @@ attr_accessor :name, :day, :month
     end
 
     def ordinal
-        # Produce an array of digits, in reverse order
-        arr = @day.digits
-        if arr.first == 1
+        last_num = @day % 10
+        if last_num == 1
              ordinal = 'st'
-        elsif arr.first == 2
+        elsif last_num == 2
             ordinal = 'nd'
-        elsif arr.first == 3
+        elsif last_num == 3
             ordinal ='rd'
         else
             ordinal = 'th'
