@@ -1,3 +1,5 @@
+###### METHODS ######
+
 def print_menu(array)
   array.each_with_index do | movie, index |
     puts "#{index+1}. #{movie[:title]}"
@@ -31,6 +33,8 @@ def print_selection(movie)
   puts " "
 end
 
+###### Data ######
+
 movies = [
   {title: "A New Hope", release_date: 1977, director: "George Lucas", actors: ["Mark Hamil", "Harrison Ford", "Carrie Fisher"], roles: ["Luke Skywalker", "Han Solo", "Leia Organa"]},
 
@@ -39,6 +43,7 @@ movies = [
   {title: "The Matrix", release_date: 1999, director: "Lana & Lilly Wachowski", actors: ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"], roles: ["Neo", "Morpheus", "Trinity"]}
 ]
 
+###### START OF PROGRAM ######
 movie_number = get_selection(movies)
 print_selection(movies[movie_number-1])
 puts 'Goodbye!'
