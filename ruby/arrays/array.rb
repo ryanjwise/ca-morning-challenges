@@ -18,24 +18,31 @@ INVENTORS = [
 
 def first_and_last_name(inventors)
 	# return a new array that contains the inventors first and last names as a string
+  inventors.map { |inventor| "#{inventor.first} #{inventor.last}" }
 end
 
 def born_before_1800(inventors)
 	# return an array of Inventors who were born before 1800
+  inventors.select { |inventor| inventor.born < 1800}
+
 end
 
 def total_age(inventors)
-	# return the total age of all the inventors
+  inventors.inject(0) { | sum, inventor | sum + (inventor.passed - inventor.born)}
 end
 
 def long_names(inventors)
 	# return an array of Inventors who have a first name of 5 or more letters
+  inventors.select { | inventor | inventor.first.length > 5 }
 end
 
 def last_name_sort(inventors)
 	# return a new array sorted by the Inventors last name
+  inventors.sort { | a, b | a.last <=> b.last}
 end
 
 def find_galilei(sorted_inventors)	 
 	# using the sorted array from `last_name_sort`, find the index of `Galileo Galilei`
+  sorted_inventors.index { | inventor | inventor.last.downcase == "galilei"}
+  #downcase.index("galilei")
 end
