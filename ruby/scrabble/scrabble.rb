@@ -23,13 +23,25 @@ end
 # puts word_ranking("test when we are here")
 # puts word_ranking("a b c d e f g")
 
-# Working on individual character scoring
-# def eval_scrable(word)
-#   score = 0
-#   word.chars.each do |character|
-#     pp character
-#   end
-#   score
-# end
+Working on individual character scoring
+def eval_scrable(word)
+  score = 0
+  points = {
+            points: 1,  characters: [],
+            points: 2,  characters: [],
+            points: 3,  characters: [],
+            points: 4,  characters: [],
+            points: 5,  characters: [],
+            points: 6,  characters: [],
+            points: 7,  characters: [],
+            points: 8,  characters: [],
+            points: 9,  characters: [],
+            points: 10, characters: []
+  }
+  word.chars.each do |character|
+    
+  end
+  score
+end
 
-# eval_scrable('tasty')
+eval_scrable('tasty')
