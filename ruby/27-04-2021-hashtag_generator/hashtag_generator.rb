@@ -1,5 +1,5 @@
 def hashtag_generator(string)
-  return false if string == ''
+  return false if string.strip == ''
 
   array = string.split(' ')
   array.unshift('#')
