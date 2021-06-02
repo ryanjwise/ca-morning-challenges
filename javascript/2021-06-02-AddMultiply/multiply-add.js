@@ -1,9 +1,9 @@
 const add = (x, y) => {
-	// Your code here
+	return x + y
 };
 
 const multiply = (x, y) => {
-	// Your code here
+	return x * y
 };
 
 
