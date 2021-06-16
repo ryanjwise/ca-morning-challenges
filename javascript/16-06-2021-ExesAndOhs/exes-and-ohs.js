@@ -14,7 +14,7 @@ const exesAndOhs = (string) => {
   }
   // Compare counts
   // Return true if even else return false
-  return x === o ? true : false;
+  return x === o;
 };
 
 console.log(exesAndOhs("xxxooo"));
